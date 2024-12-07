@@ -24,7 +24,7 @@ export default class Modal extends Component {
                                     <div id="modal" className=
                                     {theme ? "col-8 mx-auto col-md-6 col-lg-4 text-capitalize text-center p-5 bg-dark" : "col-8 mx-auto col-md-6 col-lg-4 text-capitalize text-center p-5"}
                                     >
-                                    <h5 className={theme && "text-white" }>item added to the cart</h5>
+                                    <h5 className={theme && "text-white" }>item successfuly added to the cart</h5>
                                     <img src={img} className="img-fluid" alt="product" />
                                     <h5 className={theme && "text-light" }>{title}</h5>
                                     <h5 className={theme ? "text-light" : "text-muted"}>price : $ {price}</h5>
