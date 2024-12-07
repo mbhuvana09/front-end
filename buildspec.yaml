@@ -9,6 +9,7 @@ phases:
   build:
     commands:
       - echo "Building the frontend application..."
+      - export NODE_OPTIONS=--openssl-legacy-provider  # Set the legacy OpenSSL provider
       - npm run build  # Run the build command (ensure this works for your app)
       
   post_build:
