@@ -4,21 +4,25 @@ phases:
   install:
     commands:
       - echo "Installing dependencies..."
-      - npm install
+      - npm install  # Install npm dependencies
+
   build:
     commands:
       - echo "Building the frontend application..."
-      - npm run build
+      - npm run build  # Run the build command (ensure this works for your app)
+      
   post_build:
     commands:
       - echo "Uploading build artifacts to S3..."
-      - aws s3 sync build/ s3://frontend-deployment-bucket --delete
+      - aws s3 sync build/ s3://frontend-deployment-bucket --delete  # Sync build output to S3
       - echo "Invalidating CloudFront cache..."
-      - aws cloudfront create-invalidation --distribution-id E1KWMKWJVU1UA2 --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E1KWMKWJVU1UA2 --paths "/*"  # Invalidate CloudFront cache
+
 artifacts:
   files:
-    - '**/*'
-  base-directory: build
+    - '**/*'  # Include all files in the build directory
+  base-directory: build  # Set the base directory to the build folder
+
 cache:
   paths:
-    - node_modules/**/*
+    - node_modules/**/*  # Cache node_modules to speed up the build process
